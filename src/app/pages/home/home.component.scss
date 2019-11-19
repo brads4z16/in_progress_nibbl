@@ -1,0 +1,36 @@
+.all-content {
+    background-color: #dac4f2;;
+    // background-color: #7B1FA2;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+.side-card {
+    height: 85%;
+    max-height: 85%; 
+    width: 80%; 
+    position: relative;
+    
+    left:2px;
+    background-color: #f4f0f7;
+    color: black;
+}
+
+.side-container {
+    max-width: 20%;
+    min-width: 20%;
+    min-height: 90%;
+    max-height: 90%;
+    margin-right: 15px!important;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.row-container {
+    bottom: 0; 
+    height: 100%;
+}

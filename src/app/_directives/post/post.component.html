@@ -1,0 +1,31 @@
+<div fxLayout="row wrap" fxLayout fxLayoutAlign="center">
+    <div class="center-content" style="width:100%">
+    <mat-card class="card">
+        <mat-card-header>
+        <mat-card-title>{{Post.title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+        {{Post.body}}
+        </mat-card-content>
+        <mat-card-actions style="align-items: flex-end">
+        <div fxLayout="row" fxLayoutAlign="end end" *ngIf="Post.chunk_id !== -1">
+            <button mat-icon-button color="primary" matTooltip="Like" matBadge="3" *ngIf="liked">
+                <mat-icon>favorite</mat-icon> 
+            </button>
+            <button mat-icon-button matTooltip="Like" matBadge="3" *ngIf="!liked">
+                <mat-icon color="primary">favorite_border</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Comment" matBadge="3" (click)="openComments()">
+                <mat-icon color="primary">speaker_notes</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Flag">
+                <mat-icon color="primary">flag</mat-icon>
+            </button>
+        </div>
+        </mat-card-actions>
+        <mat-card-footer *ngIf="Post.chunk_id != -1">
+            <span style="margin-left: 10px;"><i> Posted by {{Post.owner_id}} via <a href="/chunk/{{Post.chunk_id}}">{{Post.chunk_id}}</a> chunk on {{Post.creationdate}} </i></span>
+        </mat-card-footer>
+    </mat-card>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<!--The content below is only for prototype mockup-->
+<div class="all-content" *ngIf="loadingPage">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div class="all-content" *ngIf="!loadingPage">
+    <app-toolbar [Page]="chunkInfo"></app-toolbar>
+    <!-- <ngx-avatar name="Brad Smith"></ngx-avatar> -->
+        <div fxLayout="row" class="row-container" fxShow.gt-xs="true" fxHide.xs>
+            <div style="width: 100%" class="post-rows">
+                <br>
+                <section *ngFor="let post of posts">
+                    <app-post [Post]="post"></app-post>
+                    <br>
+                </section>
+                <section *ngIf="posts.length == 0">
+                    <app-post [Post]="noPostsPost"></app-post>
+                </section>
+            </div>
+            <div class="side-container">
+                <br>
+                <mat-card class="side-card">
+                    <mat-card-header>
+                        <mat-card-title>{{chunkInfo.chunkname}}</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div fxLayout="column">
+                            <div>
+                                {{ chunkInfo.description }}
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        <div class="row-container" fxHide.gt-xs="true" style="padding-top: 15px;">
+            <section *ngFor="let post of posts">
+                <br>
+                <app-post [Post]="post"></app-post>
+            </section>
+        </div>
+</div>

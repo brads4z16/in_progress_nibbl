@@ -1,0 +1,38 @@
+.center-content {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    max-height: 90%;
+}
+
+.mat-card {
+    max-width: 300px !important;
+    min-width: 300px;
+    max-height: 350px !important;
+    background-color: #d1d7e0;
+    color: #2d283e;
+    overflow-y: auto !important;
+}
+
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #673ab7 !important;
+} 
+
+::ng-deep .mat-form-field-label {
+/*change color of label*/
+color: #673ab7 !important;
+}
+
+.card-content {
+    overflow-y: initial;
+}
+
+.mat-raised-button{
+    background-color: #673ab7;
+}
+
+.submit-btn:disabled {
+    background-color: #dac4f2;
+    color: black;
+}

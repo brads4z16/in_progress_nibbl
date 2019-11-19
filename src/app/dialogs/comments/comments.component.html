@@ -1,0 +1,44 @@
+<div fxLayout="row wrap" fxLayoutAlign="center center" style="padding:10px;" class="modal">
+    <div class="center-content" style="width:100%">
+        <div fxLayout="column">
+            <div fxLayoutAlign="end end" style="height:10px">
+                <button mat-icon-button [mat-dialog-close]="data"  class="exit-button">
+                    <mat-icon>clear</mat-icon>
+                </button>
+            </div>
+            <div>
+                <mat-card class="test-card">
+                    <mat-card-header>
+                    <mat-card-title>{{ data.title }}</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="card-content">
+                        <p>{{ data.content }}</p>
+                        
+                        <form [formGroup]="commentForm">
+                            <mat-form-field style="width:100%">
+                                <textarea matInput placeholder="Comment" class="text" cdkInitialFocus formControlName="comment"></textarea>
+                            </mat-form-field>
+                            <div fxLayout="row" fxLayoutAlign="end end">
+                                <button mat-raised-button class="submit-right" [disabled]="!commentForm.valid" (click)="submitComment()">Comment</button>
+                            </div>
+                        </form>
+                        <p></p>
+                        <mat-list>
+                            <mat-list-item><span class="list-item">Comment 1</span></mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item><span class="list-item">Comment 2</span></mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item><span class="list-item">Comment 3</span></mat-list-item>
+                            <mat-divider></mat-divider>
+                            <br><br><br><br><br><br><br><br>
+                            <p>Test</p>
+                            <mat-list-item><span class="list-item">Comment 1</span></mat-list-item>
+                            <mat-divider></mat-divider>
+                        </mat-list>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+
+</div>

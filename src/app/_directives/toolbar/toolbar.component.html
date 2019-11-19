@@ -1,0 +1,50 @@
+<mat-toolbar  class="toolbar">
+    <h2 class="home-link" matTooltip="Home" matTooltipClass="tooltip" (click)="changeChunk('1')">nibbl</h2>
+    <button mat-raised-button [matMenuTriggerFor]="menu" style="margin-left:5px;" class="buttons">
+        {{ pageName }}
+    </button>
+    <mat-menu #menu="matMenu" class="menu">
+        <section *ngFor="let chunk of userdata.savedchunks">
+            <p mat-menu-item class="menu-item" (click)="changeChunk(chunk.id)">{{chunk.name}}</p>
+        </section>
+    </mat-menu>
+    <button mat-raised-button [matMenuTriggerFor]="filterMenu" class="buttons" style="margin-left:5px">
+        Filter Branch
+    </button>
+    <mat-menu #filterMenu="matMenu" class="menu">
+        <p mat-menu-item class="menu-item" (click)="filterPosts('1')">Popularity</p>
+        <p mat-menu-item class="menu-item" (click)="filterPosts('2')">Most Recent</p>
+    </mat-menu>
+    <form [formGroup]="searchForm" (ngSubmit)="searchChunks()">
+        <mat-form-field class="search-bar">
+            <mat-icon matPrefix class="search-prefix">search</mat-icon>
+            <input class="search-bar" type="text" matInput formControlName="searchVal" [matAutocomplete]="auto">
+        </mat-form-field>
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of searchAutoComplete" (click)="changeChunk(option.id)">{{option.name}}</mat-option>
+            <mat-option *ngIf="searchAutoComplete.length == 0 && searchValue !== '' && !loadingSuggestions"><i>No chunks match your search</i></mat-option>
+            <mat-spinner *ngIf="loadingSuggestions"></mat-spinner>
+        </mat-autocomplete>
+    </form>
+    <div fxFlex fxLayout fxLayoutAlign="end">
+        <button mat-icon-button (click)="changeChunk('1')">
+            <mat-icon matTooltip="Top Trending NiBBL's">trending_up</mat-icon>
+        </button>
+        <button mat-icon-button color="secondary" (click)="createNewPost()">
+            <mat-icon matTooltip="New NiBBL">create</mat-icon>
+        </button>
+        <button mat-icon-button (click)="createNewChunk()">
+            <mat-icon matTooltip="Create new chunk">add</mat-icon>
+        </button>
+        <button mat-icon-button color="secondary" (click)="saveChunk()">
+            <mat-icon matTooltip="Save Current Chunk">save_alt</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="accountmenu">
+            <mat-icon matTooltip="Account">power_settings_new</mat-icon>
+        </button>
+        <mat-menu #accountmenu="matMenu" class="menu">
+            <p mat-menu-item class="menu-item" (click)="viewProfile()">Account Settings</p>
+            <p mat-menu-item class="menu-item" (click)="logout()">Logout</p>
+        </mat-menu>
+    </div>
+</mat-toolbar>

@@ -1,0 +1,49 @@
+.toolbar {
+    color: #d1d7e0;
+    background-color: #673ab7;
+}
+
+::ng-deep .menu {
+    background-color: #d1d7e0;
+    .p {
+        color: #2d283e!important;
+    }
+}
+
+::ng-deep .menu-item {
+    color: #2d283e!important;
+}
+
+::ng-deep .mat-tooltip {
+    font-size: 14px!important;
+}
+
+::ng-deep .buttons {
+    background-color: #673ab7;
+    color: #d1d7e0;
+}
+
+::ng-deep .search-bar {
+    margin-left: 20px;
+    margin-top: 10px!important;
+    width: 350px!important;
+    color: white!important;
+}
+
+::ng-deep .search-bar:focus {
+    color: white !important;
+}
+
+.search-bar:default {
+    color: white!important;
+}
+
+.search-prefix {
+    margin-top: 10px!important;
+    height: 50%;
+}
+
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: white !important;
+} 

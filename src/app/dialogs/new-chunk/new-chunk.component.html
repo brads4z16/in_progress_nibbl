@@ -1,0 +1,39 @@
+<div fxLayout="row wrap" fxLayoutAlign="center center" style="padding:10px;" class="modal">
+    <div class="center-content">
+        <div fxLayout="column">
+            <div fxLayoutAlign="end end" style="height:10px">
+                <button mat-icon-button [mat-dialog-close]="data">
+                    <mat-icon>clear</mat-icon>
+                </button>
+            </div>
+            <div>
+                <mat-card class="mat-card">
+                    <mat-card-title class="center-content">Create New Chunk: </mat-card-title>
+                    <mat-card-content class="card-content center-content">
+                        <form [formGroup]="newChunkForm">
+                            <div fxLayout="column">
+                                <div>
+                                    <mat-form-field>
+                                        <mat-label>Title: </mat-label>
+                                        <input matInput formControlName="title" autocomplete="false">
+                                    </mat-form-field>
+                                </div>
+                                <div>
+                                    <mat-form-field>
+                                        <mat-label>Chunk Description: </mat-label>
+                                        <textarea matInput formControlName="description"></textarea>
+                                    </mat-form-field>
+                                </div>
+                                <div fxLayoutAlign="center">
+                                    <button mat-raised-button class="submit-btn" (click)="submitNewChunk()" [disabled]="!newChunkForm.valid" [mat-dialog-close]="data">
+                                        Create Chunk
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

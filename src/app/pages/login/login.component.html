@@ -1,0 +1,129 @@
+
+    <div class="background">
+      <!-- Start Welcome Page specific toolbar -->
+      <mat-toolbar color="primary" class="toolbar">
+          <h2 class="home-link" matTooltip="Home" matTooltipClass="tooltip">nibbl</h2>
+          <button mat-raised-button [matMenuTriggerFor]="menu" color="primary" style="margin-left:5px;">
+              {{ pageName }}
+          </button>
+          <mat-menu #menu="matMenu" class="menu">
+              <!-- <p mat-menu-item class="menu-item">Home</p> -->
+              <!-- <p mat-menu-item class="menu-item">University of Pittsburgh</p> -->
+          </mat-menu>
+          <p> find your niche, nibbl some info </p>
+          <div fxFlex fxLayout fxLayoutAlign="end">
+              <button mat-icon-button>
+              <mat-icon matTooltip="logout">power_settings_new</mat-icon>
+              </button>
+          </div>
+      </mat-toolbar>    <!-- End Welcome Page specific toolbar -->
+
+      <div class="center-content" style = "padding-top: 1.5%; padding-left: 2.5%; padding-right: 2.5%">
+        <div fxLayout fxLayout="row" fxLayoutAlign="space-evenly start">
+          <!-- Welcome to Nibbl message -->
+            <mat-card class="message-card" style = "width: 50%">
+              <h1 align = "center" style = "text-decoration: underline;  color: #673ab7">
+                Welcome to nibbl!<br>
+              </h1>
+                <p align = "center">
+                  Some may ask "What the heck is a nibbl?"<br>
+                  Well, nibbl is a hierarchically organized social network
+                  allowing for specific and general interactions. There are
+                  organically generated branches and sub-branches to nibbl
+                  down or gnaw up. Posts will show up in higher branches if
+                  their algorithmic popularity merits.
+                </p>
+            </mat-card>
+
+          <!-- Login/Sign-Up card -->
+            <mat-card class="signin-card" style = "width:30%">
+              <mat-tab-group mat-align-tabs="center">
+                <mat-tab label="Sign In">
+                  <!-- Log In tab -->
+                  <h3 align = "center" style = "color: #673ab7">
+                    Already have an account?<br>
+                    Sign In to nibbl!<br>
+                  </h3>
+                  <form [formGroup]="signInForm" (ngSubmit)="signIn()">
+                    <p align = "center">
+                      <!-- Username field -->
+                      <mat-form-field appearance="outline" color="#673ab7">
+                        <mat-label>Enter Username</mat-label>
+                        <input matInput placeholder="Username" formControlName="username">
+                      </mat-form-field>
+                      <!-- Password field -->
+                      <mat-form-field appearance="outline" color="#673ab7">
+                        <mat-label>Enter Password</mat-label>
+                        <input matInput type = "password" placeholder="Password" formControlName="password">
+                      </mat-form-field>
+                      <!-- Sign In button -->
+                      <br>
+                      <button mat-raised-button align = "center" color="primary" [disabled]="!signInForm.valid" class="sign-on-button">
+                        Sign In
+                      </button>
+                    </p>
+                  </form>
+
+                  <!-- End Log In -->
+                </mat-tab>
+                <!-- Sign Up tab -->
+                <mat-tab label="Create Account">
+                  <h3 align = "center" style = "color: #673ab7">
+                    New to nibbl?<br>
+                    Sign up to get started!<br>
+                  </h3>
+                  <form [formGroup]="createUserForm" (ngSubmit)="createUser()">
+                    <p align = "center">
+                      <!-- Name field -->
+                      <mat-form-field appearance="outline" color="#673ab7">
+                        <mat-label>Enter Name</mat-label>
+                        <input matInput placeholder="Name" formControlName="name">
+                      </mat-form-field>
+                      <!-- Birthday field -->
+                      <mat-form-field appearance="outline" color="#673ab7">
+                        <mat-label> Enter Birth Date </mat-label>
+                        <input matInput [max]="maxDate" placeholder="Enter Birth Date"[matDatepicker]="picker" formControlName="dob">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker startView="multi-year" [startAt]="startDate"></mat-datepicker>
+                      </mat-form-field>
+                      <mat-form-field appearance="outline" color="#673ab7">
+                        <mat-label>Enter Email</mat-label>
+                        <input matInput placeholder="Email" formControlName="email">
+                      </mat-form-field>
+                      <!-- Username field -->
+                      <mat-form-field appearance="outline" color="#673ab7">
+                        <mat-label>Enter Username</mat-label>
+                        <input matInput placeholder="Username" formControlName="username">
+                      </mat-form-field>
+                      <!-- Password field -->
+                      <mat-form-field appearance="outline" color="#673ab7">
+                        <mat-label>Create Password</mat-label>
+                        <input matInput type = "password" placeholder="Password" formControlName="password">
+                      </mat-form-field>
+                      <!-- Confirm Password field -->
+                      <mat-form-field appearance="outline" color="#673ab7">
+                        <mat-label>Confirm Password</mat-label>
+                        <input matInput type = "password" placeholder="Confirm Password" formControlName="confirmpassword">
+                      </mat-form-field>
+                      <br>
+                      <!-- Create Account button -->
+                      <button mat-raised-button color="primary" [disabled]="!createUserForm.valid" class="sign-on-button">Create Account</button>
+                    </p>
+                  </form>
+                </mat-tab>
+                <!-- End Sign Up tab -->
+              </mat-tab-group>
+            </mat-card>
+          <!-- name, age, username, email, password, confirm password -->
+        </div>
+      </div>
+
+      <!-- Start Welcome Page specific footer -->
+      <div>
+        <mat-toolbar color="primary" class="footer">
+            <div fxFlex fxLayout fxLayoutAlign="end center">
+              Developed by Group 8 for Captain S.K. Chang's CS-1530
+            </div>
+        </mat-toolbar>    <!-- End Welcome Page specific footer -->
+      </div>
+    </div>
