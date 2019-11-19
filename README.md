@@ -1,5 +1,7 @@
 # NibblUpdate
 
+This is an in progress school project for CS 1530. I am tasked with developing the front end using anular 8. Because this a copy of the original repo so no updates will be made to this. 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
 
 ## Development server
